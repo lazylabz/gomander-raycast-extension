@@ -3,15 +3,15 @@ import { service } from "../service";
 import { showToast, Style } from "@raycast/api";
 import { defaultQueryClient } from "../react-query";
 
-export const useRunCommandGroup = () =>
+export const useRunCommand = () =>
   useMutation(
     {
-      mutationFn: service.startCommandGroup,
+      mutationFn: service.startCommand,
       onSuccess: () => {
-        showToast({ title: "Command group started", style: Style.Success });
+        showToast({ title: "Command started", style: Style.Success });
       },
       onError: (error: Error) => {
-        showToast({ title: `Error starting command group: ${error.message}`, style: Style.Failure });
+        showToast({ title: `Error starting command: ${error.message}`, style: Style.Failure });
       },
     },
     defaultQueryClient,
