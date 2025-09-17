@@ -12,10 +12,10 @@ const fetchCommandGroups = async (): Promise<CommandGroup[]> => {
   return (await response.json()) as CommandGroup[];
 };
 
-const startCommandGroup = async (id: string): Promise<void> => {
+const runCommandGroup = async (id: string): Promise<void> => {
   const port = await scanForPort();
 
-  const response = await fetch(`http://localhost:${port}/command-group/start/${id}`, { method: "POST" });
+  const response = await fetch(`http://localhost:${port}/command-group/run/${id}`, { method: "POST" });
   if (!response.ok) {
     throw new Error(`Error starting command group: ${response.statusText}`);
   }
@@ -61,9 +61,9 @@ const stopCommand = async (id: string): Promise<void> => {
 
 export const service = {
   fetchCommandGroups,
-  startCommandGroup,
+  runCommandGroup,
   stopCommandGroup,
   fetchCommands,
-  startCommand: runCommand,
+  runCommand,
   stopCommand,
 };

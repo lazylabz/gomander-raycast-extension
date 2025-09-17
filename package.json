@@ -15,27 +15,15 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "run-command-group",
-      "title": "Run command group",
-      "description": "Run a command group from gomander",
+      "name": "manage-command-group",
+      "title": "Manage command groups",
+      "description": "Manage your gomander command groups",
       "mode": "view"
     },
     {
-      "name": "stop-command-group",
-      "title": "Stop command group",
-      "description": "Stop a running command group from gomander",
-      "mode": "view"
-    },
-    {
-      "name": "run-command",
-      "title": "Run command",
-      "description": "Run a command from gomander",
-      "mode": "view"
-    },
-    {
-      "name": "stop-command",
-      "title": "Stop command",
-      "description": "Stop a running command from gomander",
+      "name": "manage-command",
+      "title": "Manage commands",
+      "description": "Manage your gomander commands",
       "mode": "view"
     }
   ],

@@ -1,17 +1,18 @@
 import { useMutation } from "@tanstack/react-query";
 import { service } from "../service";
-import { showToast, Style } from "@raycast/api";
+import { showToast, Toast } from "@raycast/api";
 import { defaultQueryClient } from "../react-query";
 
-export const useStopCommandGroup = () =>
+export const useStopCommandGroup = ({ onSuccess }: { onSuccess: () => void }) =>
   useMutation(
     {
       mutationFn: service.stopCommandGroup,
       onSuccess: () => {
-        showToast({ title: "Command group stopped", style: Style.Success });
+        onSuccess();
+        showToast({ title: "Command group stopped", style: Toast.Style.Success });
       },
       onError: (error: Error) => {
-        showToast({ title: `Error stopping command group: ${error.message}`, style: Style.Failure });
+        showToast({ title: `Error stopping command group: ${error.message}`, style: Toast.Style.Failure });
       },
     },
     defaultQueryClient,
